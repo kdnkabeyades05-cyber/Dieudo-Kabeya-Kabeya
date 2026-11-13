@@ -1,0 +1,642 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Dieudo K. Kabeya</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#000000',
+          night: '#0A0A0A',
+          burgundy: { DEFAULT: '#4A0E17', deep: '#3B0910', glow: '#7a1a2a' },
+          bone: '#F3EDE8'
+        },
+        fontFamily: {
+          display: ['Outfit', 'Inter', 'system-ui', 'sans-serif'],
+          sans: ['Inter', 'system-ui', 'sans-serif']
+        },
+        boxShadow: {
+          glow: '0 0 40px -8px rgba(122,26,42,.65)',
+          depth: '0 30px 80px -30px rgba(0,0,0,.9)'
+        }
+      }
+    }
+  };
+</script>
+<style>
+  /* Concept : un plateau de verre fumé posé sur le noir ; le bordeaux n'apparaît que comme lumière derrière le verre. */
+  :root {
+    --bg: #000000;
+    --bg-2: #0A0A0A;
+    --fg: #FFFFFF;
+    --muted: rgba(255,255,255,.62);
+    --burgundy: #4A0E17;
+    --burgundy-deep: #3B0910;
+    --burgundy-glow: #7a1a2a;
+    --glass: rgba(255,255,255,.05);
+    --glass-strong: rgba(0,0,0,.4);
+    --line: rgba(255,255,255,.10);
+    --font-display: 'Outfit', 'Inter', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    color-scheme: dark;
+  }
+  html { scroll-behavior: smooth; background: var(--bg); }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+    z-index: 60; background: var(--bg);
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); text-wrap: balance; letter-spacing: -0.02em; }
+  .wrap {
+    width: 100%; max-width: 1200px; margin-inline: auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  section[id] { scroll-margin-top: 96px; }
+  .glass {
+    background: var(--glass);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    border: 1px solid var(--line);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.14), inset 0 -1px 0 rgba(255,255,255,.03), 0 30px 80px -30px rgba(0,0,0,.9);
+  }
+  .glass-dark {
+    background: var(--glass-strong);
+    -webkit-backdrop-filter: blur(22px);
+    backdrop-filter: blur(22px);
+    border: 1px solid var(--line);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 20px 60px -24px rgba(0,0,0,.9);
+  }
+  .glass-hover { transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease, background .3s ease; }
+  .glass-hover:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,255,255,.24);
+    background: rgba(255,255,255,.075);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 0 44px -10px rgba(122,26,42,.7), 0 30px 80px -30px rgba(0,0,0,.9);
+  }
+  .eyebrow {
+    font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted);
+  }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+    border-radius: 999px; padding: .85rem 1.6rem; font-weight: 500; font-size: .95rem;
+    transition: all .3s ease; cursor: pointer; text-decoration: none; border: 1px solid transparent;
+  }
+  .btn:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 2px solid #fff; outline-offset: 3px;
+  }
+  .btn-solid { background: #fff; color: #000; }
+  .btn-solid:hover { background: var(--burgundy); color: #fff; box-shadow: 0 0 40px -6px var(--burgundy-glow); border-color: rgba(255,255,255,.3); }
+  .btn-glass { background: var(--glass); border-color: rgba(255,255,255,.2); color: #fff; -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+  .btn-glass:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.4); box-shadow: 0 0 30px -8px rgba(255,255,255,.35); }
+  .btn-burgundy { background: var(--burgundy); color: #fff; border-color: rgba(255,255,255,.14); box-shadow: 0 0 30px -10px var(--burgundy-glow); }
+  .btn-burgundy:hover { background: var(--burgundy-glow); box-shadow: 0 0 50px -6px var(--burgundy-glow); }
+
+  .nav-link { color: var(--muted); font-size: .92rem; padding: .4rem .2rem; position: relative; transition: color .3s ease; text-decoration: none; }
+  .nav-link::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px; background: #fff; transform: scaleX(0); transform-origin: left; transition: transform .3s ease; }
+  .nav-link:hover, .nav-link.active { color: #fff; }
+  .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+
+  /* Hero atmosphere */
+  .orb { position: absolute; border-radius: 999px; filter: blur(70px); pointer-events: none; }
+  .orb-a { width: 520px; height: 520px; background: var(--burgundy); opacity: .75; top: -120px; right: -120px; animation: drift 14s ease-in-out infinite alternate; }
+  .orb-b { width: 360px; height: 360px; background: var(--burgundy-glow); opacity: .28; bottom: -80px; left: -100px; animation: drift 18s ease-in-out infinite alternate-reverse; }
+  .shape { position: absolute; border: 1px solid rgba(255,255,255,.12); background: linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,0)); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); pointer-events: none; }
+  .shape-1 { width: 180px; height: 180px; border-radius: 40px; top: 18%; left: 6%; animation: spin 40s linear infinite; }
+  .shape-2 { width: 110px; height: 110px; border-radius: 999px; bottom: 14%; left: 42%; animation: float 9s ease-in-out infinite; }
+  .shape-3 { width: 240px; height: 240px; border-radius: 60px; bottom: 6%; right: 4%; animation: spin 60s linear infinite reverse; }
+  .gridlines { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px); background-size: 64px 64px; -webkit-mask-image: radial-gradient(ellipse at 60% 40%, #000 20%, transparent 70%); mask-image: radial-gradient(ellipse at 60% 40%, #000 20%, transparent 70%); pointer-events: none; }
+  @keyframes drift { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(-40px, 30px, 0) scale(1.08); } }
+  @keyframes float { from { transform: translateY(0); } to { transform: translateY(-22px); } }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .filter-btn { transition: all .3s ease; cursor: pointer; }
+  .filter-btn[aria-pressed="true"] { background: #fff; color: #000; border-color: #fff; }
+  .filter-btn[aria-pressed="false"]:hover { background: rgba(255,255,255,.1); }
+
+  .project { position: relative; overflow: hidden; border-radius: 26px; }
+  .project .visual { transition: transform .6s ease; }
+  .project:hover .visual { transform: scale(1.06); }
+  .project .overlay {
+    position: absolute; inset: auto 12px 12px 12px; padding: 16px 18px; border-radius: 20px;
+    opacity: 0; transform: translateY(14px); transition: all .3s ease;
+  }
+  .project:hover .overlay, .project:focus-within .overlay { opacity: 1; transform: translateY(0); }
+  @media (hover: none) { .project .overlay { opacity: 1; transform: none; } }
+  .project.is-hidden { display: none; }
+
+  .field {
+    width: 100%; background: rgba(0,0,0,.45); border: 1px solid var(--line); border-radius: 16px;
+    padding: .9rem 1.1rem; color: #fff; font: inherit; transition: border-color .3s ease, box-shadow .3s ease;
+  }
+  .field::placeholder { color: rgba(255,255,255,.35); }
+  .field:focus { border-color: rgba(255,255,255,.45); box-shadow: 0 0 30px -10px var(--burgundy-glow); outline: none; }
+  select.field option { background: #0A0A0A; color: #fff; }
+
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent); }
+  .tag { font-size: 11px; letter-spacing: .08em; padding: .25rem .65rem; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.05); color: rgba(255,255,255,.8); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+
+<!-- ============ NAVBAR ============ -->
+<header class="fixed top-0 inset-x-0 z-50" style="padding-top: env(safe-area-inset-top, 0px);">
+  <div class="wrap pt-3">
+    <nav class="glass-dark rounded-full flex items-center justify-between gap-4 pl-5 pr-2 py-2" aria-label="Navigation principale">
+      <a href="#accueil" class="font-display font-semibold tracking-tight text-[15px] whitespace-nowrap flex items-center gap-2">
+        <img src="A.jpg" alt="" aria-hidden="true" class="w-7 h-7 rounded-full object-cover border border-white/20">
+        DIEUDO K. KABEYA
+      </a>
+      <div class="hidden lg:flex items-center gap-7">
+        <a class="nav-link" href="#accueil">Accueil</a>
+        <a class="nav-link" href="#competences">Compétences</a>
+        <a class="nav-link" href="#projets">Projets</a>
+        <a class="nav-link" href="#services">Services</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="#contact" class="btn btn-burgundy hidden sm:inline-flex !py-2.5 !px-5 text-sm">Discutons d'un projet
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <button id="menuBtn" class="lg:hidden w-10 h-10 rounded-full btn-glass grid place-items-center border" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobileMenu" class="glass-dark rounded-3xl mt-2 p-3 lg:hidden" hidden>
+      <a class="block px-4 py-3 rounded-2xl hover:bg-white/10 transition" href="#accueil">Accueil</a>
+      <a class="block px-4 py-3 rounded-2xl hover:bg-white/10 transition" href="#competences">Compétences</a>
+      <a class="block px-4 py-3 rounded-2xl hover:bg-white/10 transition" href="#projets">Projets</a>
+      <a class="block px-4 py-3 rounded-2xl hover:bg-white/10 transition" href="#services">Services</a>
+      <a class="block px-4 py-3 rounded-2xl hover:bg-white/10 transition" href="#contact">Contact</a>
+      <a class="btn btn-burgundy w-full mt-2" href="#contact">Discutons d'un projet</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ============ HERO ============ -->
+<section id="accueil" class="relative overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28">
+  <div class="gridlines"></div>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+  <div class="shape shape-1 hidden md:block"></div>
+  <div class="shape shape-2"></div>
+  <div class="shape shape-3 hidden lg:block"></div>
+
+  <div class="wrap relative grid lg:grid-cols-12 gap-14 items-center">
+    <div class="lg:col-span-7 min-w-0">
+      <p class="eyebrow inline-flex items-center gap-3 glass rounded-full px-4 py-2 !tracking-[.18em]">
+        <span class="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_10px_#fff]"></span>
+        Graphiste designer · Identité visuelle · Web
+      </p>
+      <h1 class="mt-7 text-[clamp(2.6rem,7.2vw,5.6rem)] leading-[1.02] font-light">
+        Je donne une <span class="font-semibold">forme</span><br class="hidden sm:block"> à ce qui<br class="hidden sm:block"> <span class="font-semibold italic" style="font-style: normal; background: linear-gradient(100deg,#fff 30%, #c9606f 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">mérite d'être vu.</span>
+      </h1>
+      <p class="mt-6 font-display text-xl sm:text-2xl text-white/85 font-light">
+        Graphiste Designer &amp; Expert en Identité Visuelle <span class="text-white/45">et</span> Développeur Web
+      </p>
+      <p class="mt-5 max-w-xl text-white/60 leading-relaxed">
+        Chaque marque porte une histoire qui doit être sentie avant d'être lue. Je la traduis en logos précis, en interfaces fluides et en détails soignés, pour que votre image soit reconnue au premier regard et retenue longtemps après.
+      </p>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a href="#projets" class="btn btn-solid">Voir mes réalisations
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-glass">Me contacter</a>
+      </div>
+      <dl class="mt-12 flex flex-wrap gap-x-10 gap-y-4 text-sm">
+        <div><dt class="eyebrow">Spécialités</dt><dd class="mt-1 text-white/85">Branding · UI/UX · Logo · Identité Visuelle</dd></div>
+        <div><dt class="eyebrow">Outils</dt><dd class="mt-1 text-white/85">Adobe Photoshop & Illustrator · Figma · CapCut</dd></div>
+        <div><dt class="eyebrow">Code</dt><dd class="mt-1 text-white/85">HTML · Tailwind CSS · C++ · Python · JavaScript </dd></div>
+         <div><dt class="eyebrow">IA TOOLS</dt><dd class="mt-1 text-white/85">Building AI Models All · Machine Learning </dd></div>
+      </dl>
+      </dl>
+    </div>
+
+    <!-- Portrait utilisé également dans le logo -->
+    <div class="lg:col-span-5 min-w-0">
+      <div class="relative mx-auto w-full max-w-[460px] aspect-[1/1.05] overflow-hidden rounded-[28px] border border-white/15" style="box-shadow: 0 30px 80px -30px rgba(0,0,0,.9), 0 0 60px -20px rgba(122,26,42,.65);">
+        <img src="A.jpg" alt="Portrait de Dieudo K. Kabala Kabeya" class="w-full h-full object-cover">
+        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/55 to-transparent px-5 pt-16 pb-5 text-center font-display text-xl sm:text-2xl font-semibold tracking-[.12em] text-white">
+          DIEUDO KABALA KABEYA
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- ============ COMPÉTENCES ============ -->
+<section id="competences" class="py-24 lg:py-32">
+  <div class="wrap">
+    <div class="max-w-2xl">
+      <p class="eyebrow">Compétences &amp; expertise</p>
+      <h2 class="mt-4 text-4xl sm:text-5xl font-light leading-tight">Quatre disciplines, <span class="font-semibold">une seule exigence.</span></h2>
+      <p class="mt-5 text-white/60">De la première esquisse à l'intégration finale, je maîtrise toute la chaîne visuelle. Votre projet garde la même cohérence du logo jusqu'à l'écran.</p>
+    </div>
+
+    <div class="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <article class="glass glass-hover rounded-[28px] p-7 flex flex-col gap-5 min-w-0">
+        <div class="w-12 h-12 rounded-2xl grid place-items-center bg-burgundy border border-white/15 shadow-glow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg>
+        </div>
+        <h3 class="text-2xl font-medium">Design Graphique &amp; Visuel</h3>
+        <ul class="text-white/65 space-y-2 text-[15px]">
+          <li class="flex gap-3"><span class="mt-2 w-1 h-1 rounded-full bg-white/60 shrink-0"></span>Identité de marque</li>
+          <li class="flex gap-3"><span class="mt-2 w-1 h-1 rounded-full bg-white/60 shrink-0"></span>Branding &amp; logotype</li>
+          <li class="flex gap-3"><span class="mt-2 w-1 h-1 rounded-full bg-white/60 shrink-0"></span>Direction artistique</li>
+          <li class="flex gap-3"><span class="mt-2 w-1 h-1 rounded-full bg-white/60 shrink-0"></span>Affiches &amp; packaging</li>
+        </ul>
+      </article>
+
+      <article class="glass glass-hover rounded-[28px] p-7 flex flex-col gap-5 min-w-0">
+        <div class="w-12 h-12 rounded-2xl grid place-items-center bg-burgundy border border-white/15 shadow-glow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="3"/><path d="M3 9h18M8 21h8"/></svg>
+        </div>
+        <h3 class="text-2xl font-medium">UI/UX &amp; Web Design</h3>
+        <ul class="text-white/65 space-y-2 text-[15px]">
+          <li class="flex gap-3"><span class="mt-2 w-1 h-1 rounded-full bg-white/60 shrink-0"></span>Maquettes Figma</li>
+          <li class="flex gap-3"><span class="mt-2 w-1 h-1 rounded-full bg-white/60 shrink-0"></span>Interfaces de sites web</li>
+          <li class="flex gap-3"><span class="mt-2 w-1 h-1 rounded-full bg-white/60 shrink-0"></span>Dashboards</li>
+          <li class="flex gap-3"><span class="mt-2 w-1 h-1 rounded-full bg-white/60 shrink-0"></span>Design System</li>
+        </ul>
+      </article>
+
+      <article class="glass glass-hover rounded-[28px] p-7 flex flex-col gap-5 min-w-0">
+        <div class="w-12 h-12 rounded-2xl grid place-items-center bg-burgundy border border-white/15 shadow-glow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h11a3 3 0 013 3v11H7a3 3 0 01-3-3z"/><path d="M8 9h6M8 13h6"/></svg>
+        </div>
+        <h3 class="text-2xl font-medium">Création de Contenu &amp; Éditorial</h3>
+        <ul class="text-white/65 space-y-2 text-[15px]">
+          <li class="flex gap-3"><span class="mt-2 w-1 h-1 rounded-full bg-white/60 shrink-0"></span>Mises en page éditoriales</li>
+          <li class="flex gap-3"><span class="mt-2 w-1 h-1 rounded-full bg-white/60 shrink-0"></span>Retouche photo avancée</li>
+          <li class="flex gap-3"><span class="mt-2 w-1 h-1 rounded-full bg-white/60 shrink-0"></span>Mockups 3D</li>
+          <li class="flex gap-3"><span class="mt-2 w-1 h-1 rounded-full bg-white/60 shrink-0"></span>Assets marketing</li>
+        </ul>
+      </article>
+
+      <article class="glass glass-hover rounded-[28px] p-7 flex flex-col gap-5 min-w-0 md:col-span-2 lg:col-span-3">
+        <div class="grid lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-5 flex flex-col gap-5">
+            <div class="w-12 h-12 rounded-2xl grid place-items-center bg-burgundy border border-white/15 shadow-glow">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8l-5 4 5 4M16 8l5 4-5 4M14 5l-4 14"/></svg>
+            </div>
+            <h3 class="text-2xl font-medium">Maîtrise Logicielle &amp; Technique</h3>
+            <p class="text-white/60 text-[15px]">La suite créative et le code travaillent ensemble. Ce que je dessine, je sais aussi l'intégrer.</p>
+          </div>
+          <div class="lg:col-span-7">
+            <div class="flex flex-wrap gap-2.5">
+              <span class="glass rounded-full px-4 py-2 text-sm">Adobe Photoshop</span>
+              <span class="glass rounded-full px-4 py-2 text-sm">Adobe Illustrator</span>
+              <span class="glass rounded-full px-4 py-2 text-sm">CAPCUT VIDEO</span>
+              <span class="glass rounded-full px-4 py-2 text-sm">BUILDING IA</span>
+              <span class="glass rounded-full px-4 py-2 text-sm">Suite créative Adobe</span>
+              <span class="glass rounded-full px-4 py-2 text-sm">Figma & Design System</span>
+              <span class="glass rounded-full px-4 py-2 text-sm">HTML / CSS / C++</span>
+              <span class="glass rounded-full px-4 py-2 text-sm">Tailwind CSS</span>
+              <span class="glass rounded-full px-4 py-2 text-sm">JavaScript</span>
+              <span class="glass rounded-full px-4 py-2 text-sm">Informatique de Cyber </span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- ============ PROJETS ============ -->
+<section id="projets" class="py-24 lg:py-32">
+  <div class="wrap">
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+      <div class="max-w-2xl">
+        <p class="eyebrow">Projets &amp; galerie</p>
+        <h2 class="mt-4 text-4xl sm:text-5xl font-light leading-tight">Une sélection de <span class="font-semibold">travaux récents.</span></h2>
+      </div>
+      <div class="flex flex-wrap gap-2" role="group" aria-label="Filtrer les projets" id="filters">
+        <button class="filter-btn glass rounded-full px-5 py-2.5 text-sm" data-filter="all" aria-pressed="true">Tous</button>
+        <button class="filter-btn glass rounded-full px-5 py-2.5 text-sm" data-filter="branding" aria-pressed="false">LOGO</button>
+        <button class="filter-btn glass rounded-full px-5 py-2.5 text-sm" data-filter="uiux" aria-pressed="false">UI/UX</button>
+        <button class="filter-btn glass rounded-full px-5 py-2.5 text-sm" data-filter="print" aria-pressed="false">AFFICHES</button>
+        <button class="filter-btn glass rounded-full px-5 py-2.5 text-sm" data-filter="web" aria-pressed="false">Web</button>
+      </div>
+    </div>
+    <div id="grid" class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+    <p id="emptyMsg" class="mt-10 text-white/50" hidden>Aucun projet dans cette catégorie pour le moment.</p>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- ============ SERVICES ============ -->
+<section id="services" class="py-24 lg:py-32">
+  <div class="wrap">
+    <div class="max-w-2xl">
+      <p class="eyebrow">Services</p>
+      <h2 class="mt-4 text-4xl sm:text-5xl font-light leading-tight">Ce que je peux <span class="font-semibold">créer pour vous.</span></h2>
+    </div>
+    <div class="mt-14 grid sm:grid-cols-2 gap-5">
+      <a href="#contact" data-type="Identité visuelle" class="svc glass glass-hover rounded-[28px] p-7 flex items-start justify-between gap-6 min-w-0">
+        <div class="min-w-0">
+          <h3 class="text-xl font-medium">Identité visuelle complète</h3>
+          <p class="mt-2 text-white/60 text-[15px]">Logo, charte graphique, déclinaisons et supports pour que votre marque parle d'une seule voix.</p>
+        </div>
+        <svg class="shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+      </a>
+      <a href="#contact" data-type="Site web" class="svc glass glass-hover rounded-[28px] p-7 flex items-start justify-between gap-6 min-w-0">
+        <div class="min-w-0">
+          <h3 class="text-xl font-medium">Site web &amp; interface</h3>
+          <p class="mt-2 text-white/60 text-[15px]">Du design Figma à l'intégration responsive en HTML et Tailwind CSS, prêt à être publié.</p>
+        </div>
+        <svg class="shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+      </a>
+      <a href="#contact" data-type="Print &amp; packaging" class="svc glass glass-hover rounded-[28px] p-7 flex items-start justify-between gap-6 min-w-0">
+        <div class="min-w-0">
+          <h3 class="text-xl font-medium">Affiches, print &amp; packaging</h3>
+          <p class="mt-2 text-white/60 text-[15px]">Flyers, affiches, cartes, emballages : des fichiers propres, pensés pour l'impression.</p>
+        </div>
+        <svg class="shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+      </a>
+      <a href="#contact" data-type="Retouche &amp; contenu" class="svc glass glass-hover rounded-[28px] p-7 flex items-start justify-between gap-6 min-w-0">
+        <div class="min-w-0">
+          <h3 class="text-xl font-medium">Retouche photo &amp; contenu marketing</h3>
+          <p class="mt-2 text-white/60 text-[15px]">Retouches avancées, mockups 3D et visuels pour vos réseaux, vos campagnes et vos présentations.</p>
+        </div>
+        <svg class="shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- ============ À PROPOS ============ -->
+<section id="apropos" class="py-24 lg:py-32">
+  <div class="wrap grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+    <div class="lg:col-span-7 min-w-0">
+      <p class="eyebrow">À propos · Mon approche</p>
+      <h2 class="mt-4 text-4xl sm:text-5xl font-light leading-tight">Le détail n'est pas un détail. <span class="font-semibold">C'est tout le design.</span></h2>
+      <div class="mt-8 space-y-5 text-white/65 max-w-xl">
+        <p>Je suis Dieudo K. Kabeya, graphiste designer, expert en identité visuelle et développeur web. Je conçois des univers visuels qui tiennent debout autant sur une affiche que sur un écran.</p>
+        <p>Mon approche part toujours de votre histoire : ce que vous faites, à qui vous parlez, ce que vous voulez qu'on retienne. Ensuite seulement viennent les formes, les couleurs et la typographie, choisies une à une et jamais par défaut.</p>
+        <p>Parce que je dessine et que je code, je livre des créations cohérentes jusqu'au dernier pixel, sans perte entre la maquette et le produit final.</p>
+      </div>
+    </div>
+    <div class="lg:col-span-5 min-w-0 grid grid-cols-2 gap-4">
+      <div class="glass rounded-[26px] p-6">
+        <div class="font-display text-5xl font-light">4</div>
+        <p class="mt-2 text-sm text-white/60">Disciplines maîtrisées : graphisme, UI/UX, éditorial, code</p>
+      </div>
+      <div class="glass rounded-[26px] p-6">
+        <div class="font-display text-5xl font-light">3</div>
+        <p class="mt-2 text-sm text-white/60">Logiciels Adobe au quotidien : Photoshop, Illustrator, Premiere Pro</p>
+      </div>
+      <div class="glass rounded-[26px] p-6">
+        <div class="font-display text-5xl font-light">100%</div>
+        <p class="mt-2 text-sm text-white/60">Sur mesure, aucun modèle réutilisé d'un client à l'autre</p>
+      </div>
+      <div class="rounded-[26px] p-6 border border-white/15" style="background: linear-gradient(145deg, var(--burgundy), var(--burgundy-deep)); box-shadow: 0 0 60px -16px var(--burgundy-glow), inset 0 1px 0 rgba(255,255,255,.2);">
+        <div class="font-display text-5xl font-light">∞</div>
+        <p class="mt-2 text-sm text-white/75">Passion pour l'esthétique et le travail bien fait</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="relative py-24 lg:py-32 overflow-hidden">
+  <div class="orb" style="width:480px;height:480px;background:var(--burgundy);opacity:.5;left:50%;bottom:-260px;transform:translateX(-50%);"></div>
+  <div class="wrap relative">
+    <div class="glass rounded-[36px] p-6 sm:p-10 lg:p-14 grid lg:grid-cols-12 gap-10 lg:gap-14">
+      <div class="lg:col-span-5 min-w-0">
+        <p class="eyebrow">Contact</p>
+        <h2 class="mt-4 text-4xl sm:text-5xl font-light leading-tight">Parlons de <span class="font-semibold">votre projet.</span></h2>
+        <p class="mt-5 text-white/60">Décrivez votre besoin en quelques lignes. Le moyen le plus direct pour échanger reste WhatsApp.</p>
+
+        <div class="mt-8 space-y-3">
+          <a href="https://wa.me/243850185481" target="_blank" rel="noopener" class="btn btn-solid w-full !justify-start">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 1.8a8.2 8.2 0 11-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0112 3.8zm-3 4.2c-.2 0-.5.1-.7.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.2 5 4.4 2.4.9 2.9.7 3.4.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4l-1.9-.9c-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.5-2-.2-.3 0-.4.1-.6l.4-.5.3-.4v-.5l-.9-2.1c-.2-.5-.4-.4-.6-.4z"/></svg>
+            WhatsApp · +243 850 185 481
+          </a>
+          <div class="glass rounded-full flex items-center justify-between gap-3 pl-5 pr-2 py-2">
+            <span class="truncate text-sm sm:text-[15px] select-all min-w-0" id="mailText">kdnkabeyades05@gmail.com</span>
+            <button type="button" id="copyMail" class="btn btn-glass !py-2 !px-4 text-sm shrink-0">Copier</button>
+          </div>
+        </div>
+      </div>
+
+      <form id="contactForm" class="lg:col-span-7 min-w-0 grid gap-4" novalidate>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label for="f-nom" class="eyebrow block mb-2">Nom</label>
+            <input id="f-nom" name="nom" type="text" class="field" placeholder="Votre nom" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="f-email" class="eyebrow block mb-2">Email</label>
+            <input id="f-email" name="email" type="email" class="field" placeholder="vous@exemple.com" autocomplete="email" required>
+          </div>
+        </div>
+        <div>
+          <label for="f-type" class="eyebrow block mb-2">Type de projet</label>
+          <select id="f-type" name="type" class="field">
+            <option>Identité visuelle</option>
+            <option>Site web</option>
+            <option>Interface UI/UX</option>
+            <option>Print &amp; packaging</option>
+            <option>Retouche &amp; contenu</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div>
+          <label for="f-msg" class="eyebrow block mb-2">Message</label>
+          <textarea id="f-msg" name="message" rows="5" class="field resize-y" placeholder="Parlez-moi de votre projet, de votre univers et de vos délais." required></textarea>
+        </div>
+        <p id="formErr" class="text-sm text-[#ff9aa6]" role="alert" hidden>Complétez votre nom, un email valide et votre message.</p>
+        <button type="submit" class="btn btn-burgundy w-full sm:w-auto sm:justify-self-start">Préparer mon message
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+
+        <div id="formResult" class="glass-dark rounded-3xl p-5 grid gap-3" hidden>
+          <p class="text-white/80 text-[15px]">Votre message est prêt. Envoyez-le par WhatsApp pour qu'il me parvienne.</p>
+          <pre id="msgPreview" class="whitespace-pre-wrap break-words text-sm text-white/65 font-sans m-0"></pre>
+          <div class="flex flex-wrap gap-3">
+            <a id="waSend" href="https://wa.me/243850185481" target="_blank" rel="noopener" class="btn btn-solid">Ouvrir dans WhatsApp</a>
+            <button type="button" id="copyMsg" class="btn btn-glass">Copier le message</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="pb-10">
+  <div class="wrap">
+    <div class="divider mb-8"></div>
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 text-sm text-white/50">
+      <div class="flex items-center gap-3">
+        <span class="inline-grid place-items-center w-8 h-8 rounded-full bg-burgundy border border-white/20 text-[11px] text-white">DK</span>
+        <span>© <span id="year">2026</span> Dieudo K. Kabeya. Tous droits réservés.</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/243850185481" target="_blank" rel="noopener" aria-label="WhatsApp" class="w-10 h-10 rounded-full glass grid place-items-center text-white hover:bg-white/15 transition">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 1.8a8.2 8.2 0 11-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0112 3.8z"/></svg>
+        </a>
+        <button type="button" id="copyMail2" aria-label="Copier l'adresse email" class="w-10 h-10 rounded-full glass grid place-items-center text-white hover:bg-white/15 transition">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 8l9 6 9-6"/></svg>
+        </button>
+        <span class="hidden sm:inline text-white/35 ml-2">Conçu en verre, noir &amp; bordeaux</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var EMAIL = 'kdnkabeyades05@gmail.com';
+  var WA = 'https://wa.me/243850185481';
+
+  // Année
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Menu mobile
+  var menuBtn = document.getElementById('menuBtn');
+  var menu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', function () {
+    var open = menu.hidden;
+    menu.hidden = !open;
+    menuBtn.setAttribute('aria-expanded', String(open));
+  });
+  menu.addEventListener('click', function (e) {
+    if (e.target.closest('a')) { menu.hidden = true; menuBtn.setAttribute('aria-expanded', 'false'); }
+  });
+
+  // Lien actif au défilement
+  var links = document.querySelectorAll('.nav-link');
+  var ids = ['accueil', 'competences', 'projets', 'services', 'contact'];
+  var sections = ids.map(function (id) { return document.getElementById(id); });
+  function setActive() {
+    var y = window.scrollY + 140, cur = ids[0];
+    sections.forEach(function (s) { if (s && s.offsetTop <= y) cur = s.id; });
+    links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + cur); });
+  }
+  window.addEventListener('scroll', setActive, { passive: true });
+  setActive();
+
+  // Réalisations
+  var PROJECTS = [
+    { t: 'NEXUS', c: 'branding', l: 'Logo', image: 'B.jfif', tags: ['Logo', 'Identité visuelle'] },
+    { t: 'NEXUS', c: 'branding', l: 'Logo', image: 'C.jfif', tags: ['Logo', 'Identité visuelle'] },
+    { t: 'Affiche 1', c: 'print', l: 'Affiche', image: 'D.jpg', tags: ['Affiche'] },
+    { t: 'Affiche 2', c: 'print', l: 'Affiche', image: 'E.jpg', tags: ['Affiche'] },
+    { t: 'Affiche 3', c: 'print', l: 'Affiche', image: 'F.jpg', tags: ['Affiche'] },
+    { t: 'Affiche 4', c: 'print', l: 'Affiche', image: 'G.jpg', tags: ['Affiche'] },
+    { t: 'Projet web 1', c: 'web', l: 'Web', image: 'H.jpg', tags: ['Web'] },
+    { t: 'Projet web 2', c: 'web', l: 'Web', image: 'I.jpg', tags: ['Web'] },
+    { t: 'Interface UI/UX 1', c: 'uiux', l: 'UI/UX', image: 'J.jpg', tags: ['UI/UX'] },
+    { t: 'Interface UI/UX 2', c: 'uiux', l: 'UI/UX', image: 'K.jpg', tags: ['UI/UX'] }
+  ];
+
+  function visual(p) {
+    return '<img class="visual w-full h-full block object-contain bg-black" src="' + p.image + '" alt="' + p.t + '" loading="lazy">';
+  }
+
+  var grid = document.getElementById('grid');
+  grid.innerHTML = PROJECTS.map(function (p) {
+    return '<article class="project glass glass-hover" data-cat="' + p.c + '">' +
+      '<div class="aspect-[4/3] overflow-hidden">' + visual(p) + '</div>' +
+      '<div class="p-5 flex items-center justify-between gap-3"><h3 class="text-lg font-medium truncate">' + p.t + '</h3><span class="tag whitespace-nowrap">' + p.l + '</span></div>' +
+      '<div class="overlay glass-dark">' +
+        '<div class="flex flex-wrap gap-1.5 mb-3">' + p.tags.map(function (t) { return '<span class="tag">' + t + '</span>'; }).join('') + '</div>' +
+        '<a href="#contact" class="btn btn-solid !py-2 !px-4 text-sm">Découvrir</a>' +
+      '</div></article>';
+  }).join('');
+
+  var btns = document.querySelectorAll('.filter-btn');
+  var cards = grid.querySelectorAll('.project');
+  var emptyMsg = document.getElementById('emptyMsg');
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = b.getAttribute('data-filter'), shown = 0;
+      btns.forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      cards.forEach(function (c) {
+        var ok = f === 'all' || c.getAttribute('data-cat') === f;
+        c.classList.toggle('is-hidden', !ok);
+        if (ok) shown++;
+      });
+      emptyMsg.hidden = shown !== 0;
+    });
+  });
+
+  // Services -> pré-sélection du type de projet
+  var typeSel = document.getElementById('f-type');
+  document.querySelectorAll('.svc').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var want = a.getAttribute('data-type').replace('&amp;', '&');
+      Array.prototype.forEach.call(typeSel.options, function (o) { if (o.textContent === want) typeSel.value = o.value; });
+    });
+  });
+
+  // Copie avec repli
+  function copyText(text, btn) {
+    var done = function (ok) {
+      if (!btn) return;
+      var old = btn.getAttribute('data-label') || btn.textContent;
+      btn.setAttribute('data-label', old);
+      if (btn.textContent.trim() !== '') btn.textContent = ok ? 'Copié' : 'Sélectionnez et copiez';
+      setTimeout(function () { if (btn.textContent.trim() !== '') btn.textContent = old; }, 1800);
+    };
+    try {
+      navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
+    } catch (e) { done(false); }
+  }
+  document.getElementById('copyMail').addEventListener('click', function () { copyText(EMAIL, this); });
+  document.getElementById('copyMail2').addEventListener('click', function () {
+    copyText(EMAIL, null);
+    var s = document.getElementById('mailText');
+    var r = document.createRange(); r.selectNodeContents(s);
+    var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  // Formulaire : prépare un message WhatsApp, rien n'est envoyé automatiquement
+  var form = document.getElementById('contactForm');
+  var err = document.getElementById('formErr');
+  var result = document.getElementById('formResult');
+  var lastMsg = '';
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var nom = form.nom.value.trim(), mail = form.email.value.trim(), msg = form.message.value.trim();
+    var okMail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail);
+    if (!nom || !okMail || !msg) { err.hidden = false; result.hidden = true; return; }
+    err.hidden = true;
+    lastMsg = 'Bonjour Dieudo, je suis ' + nom + '.\nProjet : ' + form.type.value + '\n\n' + msg + '\n\nMon email : ' + mail;
+    document.getElementById('msgPreview').textContent = lastMsg;
+    document.getElementById('waSend').setAttribute('href', WA + '?text=' + encodeURIComponent(lastMsg));
+    result.hidden = false;
+  });
+  document.getElementById('copyMsg').addEventListener('click', function () { copyText(lastMsg, this); });
+})();
+</script>
+
+</body></html>
